@@ -7,4 +7,4 @@ use App\Http\Controllers\PageController;
 //     return view('welcome');
 // });
 
-// Route::get('/', )
+Route::get('/', [PageController::class, 'login']);
