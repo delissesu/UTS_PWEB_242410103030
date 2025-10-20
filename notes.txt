@@ -8,3 +8,6 @@ Digunakan untuk menentukan bagian layout yang akan diganti oleh halaman turunan.
 
 3. @include
 Digunakan untuk masukin potongan tampilan (partial view) ke dalam halaman lain. Biasanya cocok untuk komponen kecil seperti navbar, sidebar, atau footer. Jadi ga perlu nulis komponen berulang di setiap halaman.
+
+4. x-componen (blade commponent)
+Mirip include, tapi bedanya bisa nerima data dan logic sendiri.
