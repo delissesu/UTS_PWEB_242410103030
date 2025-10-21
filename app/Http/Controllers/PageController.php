@@ -9,12 +9,14 @@ class PageController extends Controller
 {
     private $users = [
         ['username' => 'naveria', 'password' => 'naver12'],
-        ['username' => 'liliaveria', 'password => lixx19']
+        ['username' => 'liliaveria', 'password' => 'lixx19']
     ];
 
     private $tabungan = [
-        ['nama' => 'Naveria', 'saldo' => '9000000'],
-        ['nama' => 'Liliaveria', 'saldo' => '6000000']
+        ['hari' => 'Senin', 'nama' => 'Naveria', 'saldo' => '9000000'],
+        ['hari' => 'Selasa', 'nama' => 'Liliaveria', 'saldo' => '6000000'],
+        ['hari' => 'Rabu', 'nama' => 'Naveria', 'saldo' => '5000000'],
+        ['hari' => 'Kamis', 'nama' => 'Liliaveria', 'saldo' => '7500000']
     ];
 
     // Login return view ke routes
@@ -27,13 +29,13 @@ class PageController extends Controller
     }
     
     // Login handler
-    public function handelLogin(Request $request) {
+    public function handleLogin(Request $request) {
         $username = $request->input('username');
         $password = $request->input('password');
 
         foreach($this->users as $user) {
             if ($user['username'] == $username && $user['password'] == $password) {
-                return redirect('dashboard?=username', urlencode($username));
+                return redirect('/dashboard?username=' . urlencode($username));
             }
         }
         return back()->with('error', 'username atau password salah');

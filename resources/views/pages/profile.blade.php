@@ -8,12 +8,11 @@
 <h1>
     ini profile
 </h1>
-@if($username) {
+@if($username)
     <p>
         Ini profile gw
         {{ $username }}.
     </p>
-}
 @endif
 
 <a href="/dashboard?username={{ urlencode($username) }}">

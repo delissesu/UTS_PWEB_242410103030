@@ -17,13 +17,12 @@
         <th>Saldo</th>
     </tr>
 
-    @foreach ($data as $i =>$item ) {
+    @foreach ($data as $item)
         <tr>
             <td>{{ $item['hari'] }}</td>
             <td>{{ $item['nama'] }}</td>
-            <td>{{ number_format($item['saldo'], 0, ',', '.') }}</td>
+            <td>Rp {{ number_format($item['saldo'], 0, ',', '.') }}</td>
         </tr>
-    }
     @endforeach
 </table>
 @endsection

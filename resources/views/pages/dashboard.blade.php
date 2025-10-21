@@ -10,20 +10,20 @@
     Tes dulu, ini dashboard
 </h1>
 
-@if($username) {
+@if($username)
     <p>
         Yow, halo kak 
         <b>
             {{ $username }}!
         </b>
     </p>
-}
 @endif
 
-<a href="/profile?username= {{ urlencode($username) }}">
+<a href="/profile?username={{ urlencode($username) }}">
     Lihat Profile
 </a>
-
+<br>
+<br>
 <a href="/pengelolaan">
     Lihat Tabungan
 </a>
