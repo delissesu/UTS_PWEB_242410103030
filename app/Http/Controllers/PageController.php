@@ -21,11 +21,7 @@ class PageController extends Controller
 
     // Login return view ke routes
     public function login() {
-        try {
-            return view('login');
-        } catch (\Exception $e) {
-            return redirect('/')->with('error', 'Gagal memuat halaman login');
-        }
+        return view('pages.login');
     }
     
     // Login handler
