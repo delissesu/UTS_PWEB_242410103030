@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         foreach($this->users as $user) {
             if ($user['username'] == $username && $user['password'] == $password) {
-                // Simpan semua data user ke session (kecuali password)
+                // Simpan data user ke session
                 $request->session()->put('username', $username);
                 $request->session()->put('nama_lengkap', $user['nama_lengkap']);
                 $request->session()->put('tanggal_lahir', $user['tanggal_lahir']);

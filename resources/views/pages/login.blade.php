@@ -2,33 +2,95 @@
 @section('title', 'NaseAPP Login')
 
 @section('content')
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-    
-    form {
-        font-family: 'Poppins', sans-serif;
-    }
-</style>
+<div class="w-full max-w-5xl mx-auto bg-gray-900 rounded-2xl shadow-2xl border border-gray-800 overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+        
+        <!-- Left Side - Brand Info (Desktop Only) -->
+        <div class="hidden md:flex flex-col justify-center p-12 bg-gradient-to-br from-gray-900 via-gray-900 to-emerald-900/30 border-r border-gray-800">
+            <a href="/" class="text-4xl font-bold text-emerald-500 mb-4 transition-colors duration-200">
+                NaseAPP
+            </a>
+            <h1 class="text-3xl font-semibold text-white mb-3">
+                Mulai menabung,
+            </h1>
+            <p class="text-gray-400 text-lg">
+                Wujudkan mimpimu selangkah demi selangkah.
+            </p>
+        </div>
 
-<h1>Tes, ini login</h1>
+        <!-- Right Side - Login Form -->
+        <div class="p-8 sm:p-12">
+            <!-- Mobile Brand -->
+            <div class="md:hidden text-center mb-8">
+                <a href="/" class="text-3xl font-bold text-emerald-500 mb-4 transition-colors duration-200">
+                    NaseAPP
+                </a>
+            </div>
+            
+            <!-- Form Header -->
+            <h2 class="text-3xl font-bold text-white mb-3 text-center md:text-left">
+                Login
+            </h2>
+            <p class="text-gray-400 mb-8 text-center md:text-left">
+                Selamat datang kembali!
+            </p>
 
-@if (session('error'))
-    <p style="color: red">{{ session('error') }}</p>
-@endif
+            <!-- Error Message -->
+            @if (session('error'))
+                <div class="bg-red-900/50 border border-red-700/50 text-red-300 p-3 rounded-lg mb-6 text-sm text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
 
-<form method="POST" action="/login" style="padding: 4px;">
-    @csrf
-    <label for="username">Username</label>
-    <br>
-    <input type="text" id="username" name="username" required style="font-family: 'Poppins">
-    <br>
-    <br>
-    <label for="password">Password</label>
-    <br>
-    <input type="password" id="password" name="password" required style="font-family: 'Poppins">
-    <br>
-    <br>
-    <button type="submit" style="font-weight: bold; font-family: 'Poppins';">Login</button>
-</form>
+            <!-- Success Message -->
+            @if (session('success'))
+                <div class="bg-green-900/50 border border-green-700/50 text-green-300 p-3 rounded-lg mb-6 text-sm text-center">
+                    {{ session('success') }}
+                </div>
+            @endif
 
+            <!-- Login Form -->
+            <form method="POST" action="/login" class="space-y-6">
+                @csrf
+                
+                <!-- Username Field -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-400 mb-2">
+                        Username
+                    </label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        required 
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                        placeholder="Masukkan username Anda">
+                </div>
+                
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-400 mb-2">
+                        Password
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                        placeholder="••••••••">
+                </div>
+                
+                <!-- Submit Button -->
+                <div>
+                    <button 
+                        type="submit" 
+                        class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-lg shadow-emerald-900/50">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

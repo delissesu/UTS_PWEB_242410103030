@@ -2,106 +2,109 @@
 @section('title', 'NaseAPP Profile')
 
 @section('content')
-<style>
-    .profile-container {
-        max-width: 750px;
-        margin: 0 auto;
-    }
-    
-    .profile-header {
-        background-color: #1a1f2e;
-        padding: 40px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-    .profile-avatar {
-        width: 120px;
-        height: 120px;
-        background: linear-gradient(135deg, #10b981, #059669);
-        border-radius: 50%;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 48px;
-    }
-    
-    .profile-info {
-        background-color: #1a1f2e;
-        padding: 30px;
-        border-radius: 8px;
-    }
-    
-    .info-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 15px 0;
-        border-bottom: 1px solid #2d3748;
-    }
-    
-    .info-row:last-child {
-        border-bottom: none;
-    }
-    
-    .info-label {
-        color: #9ca3af;
-        font-weight: 600;
-    }
-    
-    .info-value {
-        color: #ffffff;
-    }
-    
-    .back-btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 12px 24px;
-        background-color: #2d3748;
-        color: white;
-        border-radius: 5px;
-    }
-    
-    .back-btn:hover {
-        background-color: #3f4655;
-        text-decoration: none;
-    }
-</style>
+<div class="max-w-6xl mx-auto">
 
-<div class="profile-container">
-    <h1>Profile Saya</h1>
+    <h1 class="text-3xl font-bold text-white mb-8 text-center sm:text-left">
+        Pengaturan Profil
+    </h1>
 
-    <div class="profile-header">
-        <div class="profile-avatar">
-            {{ strtoupper(substr($username ?? 'U', 0, 1)) }}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        {{-- card kiri --}}
+        <div class="md:col-span-1">
+            <div class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-800 text-center sticky top-24 hover:border-emerald-700/60 transition-all duration-300">
+                {{-- ava circle --}}
+                <div class="w-40 h-40 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center text-6xl font-bold text-white shadow-lg border-4 border-gray-800/50">
+                    {{ strtoupper(substr($username ?? 'U', 0, 1)) }}
+                </div>
+
+                {{-- usn --}}
+                <h2 class="text-white text-3xl font-semibold mb-1">
+                    {{ ucfirst($username ?? 'User') }}
+                </h2>
+
+                {{-- desc --}}
+                <p class="text-emerald-400 text-base">
+                    Member NaseAPP
+                </p>
+
+                <hr class="border-gray-700/50 my-6">
+
+                {{-- back --}}
+                <div class="md:hidden">
+                    <a href="/dashboard" class="inline-flex items-center justify-center gap-2 w-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium py-3 px-5 rounded-lg transition-colors duration-200 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                        </svg>
+                        Kembali
+                    </a>
+                </div>
+            </div>
         </div>
-        <h2 style="color: #ffffff; font-size: 24px; margin-bottom: 5px;">{{ $username ?? 'User' }}</h2>
-        <p style="color: #9ca3af;">Member NaseAPP</p>
+
+        {{-- card kanan --}}
+        <div class="md:col-span-2">
+            <div class="bg-gray-900 rounded-2xl shadow-xl border border-gray-800 overflow-hidden hover:border-emerald-700/60 transition-all duration-300">
+                <!-- Card Header -->
+                <div class="px-6 py-5 sm:px-8 border-b border-gray-800">
+                    <h3 class="text-xl font-semibold text-white">
+                        Detail Akun
+                    </h3>
+                    <p class="text-gray-400 mt-1 text-sm">
+                        Lihat Informasi pribadimu.
+                    </p>
+                </div>
+                
+
+                <div class="divide-y divide-gray-800">
+                    {{-- Username --}}
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Username</span>
+                        <span class="text-white font-semibold text-lg sm:text-right">{{ ucfirst($username) ?? 'N/A' }}</span>
+                    </div>
+                    
+                    <!-- Nama Lengkap -->
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Nama Lengkap</span>
+                        <span class="text-white font-semibold text-lg sm:text-right">{{ $nama_lengkap ?? 'N/A' }}</span>
+                    </div>
+
+                    <!-- Tanggal Lahir -->
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Tanggal Lahir</span>
+                        <span class="text-white font-medium text-lg sm:text-right">
+                            @if($tanggal_lahir)
+                                {{ \Carbon\Carbon::parse($tanggal_lahir)->format('d F Y') }}
+                            @else
+                                <span class="text-gray-500 italic">N/A</span>
+                            @endif
+                        </span>
+                    </div>
+
+                    <!-- Nomor Telepon -->
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Nomor Telepon</span>
+                        <span class="text-white font-medium text-lg sm:text-right">{{ $nomor_telepon ?? 'N/A' }}</span>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Alamat Email</span>
+                        <span class="text-white font-medium text-lg sm:text-right">{{ $email ?? 'N/A' }}</span>
+                    </div>
+                </div>
+
+                {{-- Button back --}}
+                <div class="bg-gray-900/50 px-6 py-5 sm:px-8 border-t border-gray-800 text-right hidden md:block">
+                    <a href="/dashboard" class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium py-3 px-5 rounded-lg transition-colors duration-200 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                        </svg>
+                        Kembali ke Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="profile-info">
-        <div class="info-row">
-            <span class="info-label">Username</span>
-            <span class="info-value">{{ $username ?? 'N/A' }}</span>
-        </div>
-        <div class="info-row">
-            <span class="info-label">Nama Lengkap</span>
-            <span class="info-value">{{ $username ?? 'N/A' }}</span>
-        </div>
-        <div class="info-row">
-            <span class="info-label">Tanggal Lahir</span>
-            <span class="info-value">N/A</span>
-        </div>
-        <div class="info-row">
-            <span class="info-label">Nomor Telepon</span>
-            <span class="info-value">N/A</span>
-        </div>
-    </div>
-    
-    <a href="/dashboard?username={{ urlencode($username ?? '') }}" class="back-btn">
-        Kembali ke Dashboard
-    </a>
 </div>
-
 @endsection
