@@ -71,7 +71,7 @@
 
 <div class="profile-container">
     <h1>Profile Saya</h1>
-    
+
     <div class="profile-header">
         <div class="profile-avatar">
             {{ strtoupper(substr($username ?? 'U', 0, 1)) }}
