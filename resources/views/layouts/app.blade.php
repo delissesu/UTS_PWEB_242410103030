@@ -1,144 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'naver-saving-app')</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            align-content: center;
-        }
-        
-        body {
-            font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f1419;
-            color: #d1d5db;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        main {
-            flex: 1;
-            padding: 20px;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            align-items: center;
-        }
-        
-        h1 {
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        p {
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        
-        a {
-            color: #10b981;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        a:hover {
-            color: #34d399;
-            text-decoration: underline;
-        }
-        
-        input[type="text"],
-        input[type="password"] {
-            background-color: #1a1f2e;
-            border: 1px solid #2d3748;
-            color: #d1d5db;
-            padding: 10px;
-            border-radius: 5px;
-            width: 100%;
-            max-width: 400px;
-            font-size: 16px;
-            margin-bottom: 1px;
-            /* text-align: left; */
-            display: inline-block;
-            vertical-align: middle; 
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: #10b981;
-        }
-        
-        label {
-            display: inline-block;
-            margin-bottom: 4px;
-            color: #9ca3af;
-            font-size: 16px;
-            font-weight: 800;   
-            text-align: left;
-            /* align-items: center; */
-        }
-        
-        button {
-            background-color: #10b981;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
-        
-        button:hover {
-            background-color: #059669;
-        }
-        
-        button:active {
-            background-color: #047857;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #1a1f2e;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        th {
-            background-color: #111827;
-            color: #ffffff;
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        td {
-            padding: 12px;
-            border-top: 1px solid #2d3748;
-        }
-        
-        tr:hover {
-            background-color: #1f2937;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
-<body>
-    @include('components.navbar')
-    <main>
+<body class="bg-gray-950 text-gray-300 antialiased flex flex-col min-h-screen">
+    
+    @if (!request()->is('/'))
+        @include('components.navbar')
+    @endif
+
+    <main class="flex-1 w-full @if(!request()->is('/')) max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 @else flex items-center justify-center px-4 @endif">
         @yield('content')
     </main>
-    @include('components.footer')
+    
+    @if (!request()->is('/'))
+        @include('components.footer')
+    @endif
+    
 </body>
 </html>
