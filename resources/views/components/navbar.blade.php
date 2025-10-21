@@ -31,6 +31,7 @@
     }
     
     .nav-brand:hover {
+        background-color: transparent;
         color: #10b981;
     }
 </style>
