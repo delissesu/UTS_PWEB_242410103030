@@ -18,12 +18,12 @@
 
 <form method="POST" action="/login">
     @csrf
-    <label for="">Username:</label>
+    <label for="">Username</label>
     <br>
     <input type="text" name="username" required>
     <br>
     <br>
-    <label for="">Password:</label>
+    <label for="">Password</label>
     <br>
     <input type="password" name="password" required>
     <br>

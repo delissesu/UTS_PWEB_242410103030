@@ -10,10 +10,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            align-content: center;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0f1419;
             color: #d1d5db;
             min-height: 100vh;
@@ -70,11 +71,11 @@
         }
         
         label {
-            display: block;
-            margin-bottom: 8px;
+            display: flex;
+            margin-bottom: 4px;
             color: #9ca3af;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 800;
         }
         
         button {
