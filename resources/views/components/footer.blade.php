@@ -1,22 +1,5 @@
-<style>
-    footer {
-        background-color: #111827;
-        padding: 20px;
-        text-align: center;
-        color: #6b7280;
-        font-size: 14px;
-        margin-top: 40px;
-    }
-    
-    footer p {
-        margin: 0;
-    }
-    
-    footer a {
-        color: #10b981;
-    }
-</style>
-
-<footer>
-    <p>@naveriaworks</p>
+<footer class="bg-gray-900 text-center py-6 mt-auto">
+    <p class="text-gray-500 text-sm">
+        <a href="#" class="text-emerald-500 hover:text-emerald-400 transition-colors font-poppins">@naveriaworks</a>
+    </p>
 </footer>
