@@ -51,8 +51,4 @@ class PageController extends Controller
     public function pengelolaan() {
         return view('pengelolaan', ['data' => $this->tabungan]);
     }
-
-
-
-
 }
