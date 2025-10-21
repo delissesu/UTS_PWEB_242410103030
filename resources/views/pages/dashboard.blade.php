@@ -83,7 +83,7 @@
     
     <div class="card">
         <h2>Tabungan</h2>
-        <p>Kelola data tabungan dan transaksi kamu</p>
+        <p>Lihat tabunganmu</p>
         <a href="/pengelolaan">Lihat Tabungan</a>
     </div>
 </div>
