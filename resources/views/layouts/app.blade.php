@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', 'naver-saving-app')</title>
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -14,12 +17,13 @@
         }
         
         body {
-            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0f1419;
             color: #d1d5db;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            text-align: center;
         }
         
         main {
@@ -28,6 +32,7 @@
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
+            align-items: center;
         }
         
         h1 {
@@ -62,7 +67,7 @@
             width: 100%;
             max-width: 400px;
             font-size: 16px;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
         }
         
         input:focus {
@@ -76,6 +81,8 @@
             color: #9ca3af;
             font-size: 14px;
             font-weight: 800;
+            justify-content: center;
+            align-items: center;
         }
         
         button {

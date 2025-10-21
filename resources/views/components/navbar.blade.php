@@ -5,7 +5,7 @@
         display: flex;
         gap: 30px;
         align-items: center;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        /* box-shadow: 0 2px 10px rgba(0,0,0,0.3); */
     }
     
     nav a {
