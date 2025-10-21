@@ -11,10 +11,6 @@ class DashboardController extends Controller
         // usn dari session
         $username = $request->session()->get('username');
         
-        // if (!$username) {
-        //     return redirect('/')->with('error', 'Silakan login terlebih dahulu');
-        // }
-        
         return view('pages.dashboard', compact('username'));
     }
 }

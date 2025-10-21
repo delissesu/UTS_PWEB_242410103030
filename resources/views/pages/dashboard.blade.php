@@ -2,90 +2,54 @@
 @section('title', 'NaseAPP Dashboard')
 
 @section('content')
-<style>
-    .welcome-box {
-        background: linear-gradient(135deg, #10b981 15%, #059669 85%);
-        padding: 30px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 12px rgba(16,185,129,0.3);
-    }
-    
-    .welcome-box h1 {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-    
-    .welcome-box p {
-        font-size: 18px;
-        opacity: 0.9;
-    }
-    
-    .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-    }
-    
-    .card {
-        background-color: #1a1f2e;
-        padding: 25px;
-        border-radius: 8px;
-        border-left: 4px solid #10b981;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    
-    .card h2 {
-        color: #ffffff;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-    
-    .card p {
-        color: #9ca3af;
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-    
-    .card a {
-        display: inline-block;
-        background-color: #10b981;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 14px;
-        font-weight: 500;
-    }
-    
-    .card a:hover {
-        background-color: #059669;
-        text-decoration: none;
-    }
-</style>
 
-<div class="welcome-box">
-    <h1>Halo, {{ ucfirst($username ?? 'Guest') }}!</h1>
-    <p>Selamat datang di dashboard kamu!</p>
+<div class="mb-10">
+    <h1 class="text-4xl font-bold text-white mb-1">
+        Halo, {{ ucfirst($username ?? 'Guest') }}!
+    </h1>
+    <p class="text-xl text-gray-400">
+        Selamat datang kembali di dashboard kamu.
+    </p>
 </div>
 
-<div class="card-grid">
-    <div class="card">
-        <h2>Profile</h2>
-        <p>Lihat dan kelola informasi profile kamu</p>
-        <a href="/profile?username={{ urlencode($username ?? '') }}">Buka Profile</a>
-    </div>
-    
-    <div class="card">
-        <h2>Tabungan</h2>
-        <p>Lihat tabunganmu</p>
-        <a href="/pengelolaan">Lihat Tabungan</a>
-    </div>
-</div>
+{{-- grid card --}}
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
+    {{-- card kiri --}}
+    <div class="lg:col-span-2 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 transition-all duration-300 hover:border-emerald-700/60 hover:shadow-lg">
+
+        {{-- konten --}}
+        <div class="text-center md:text-left">
+            <h2 class="text-3xl font-semibold text-white mb-2">
+                Tabungan Saya
+            </h2>
+            <p class="text-gray-400 mb-6 max-w-lg">
+                Lihat semua riwayat tabungan dan periksa total saldomu.
+            </p>
+            <a href="/pengelolaan" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200">
+                Lihat Tabungan
+            </a>
+        </div>
+    </div>
+
+    {{-- card kanan --}}
+    <div class="lg:col-span-1 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-emerald-700/60 hover:shadow-lg">
+
+        <div class="flex-shrink-0 w-20 h-20 bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+        </div>
+        
+        <h2 class="text-2xl font-semibold text-white mb-2">
+            Profil Akun
+        </h2>
+        <p class="text-gray-400 mb-6 text-sm">
+            Lihat dan perbarui informasi pribadimu.
+        </p>
+        <a href="/profile" class="inline-block bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium py-2 px-5 rounded-lg transition-colors duration-200">
+            Buka Profil
+        </a>
+    </div>
+</div>  
 @endsection

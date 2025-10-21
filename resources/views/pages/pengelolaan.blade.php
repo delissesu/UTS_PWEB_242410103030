@@ -2,213 +2,99 @@
 @section('title', 'NaseAPP Tabungan')
 
 @section('content')
-<style>
-    .pengelolaan-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
 
-    .pengelolaan-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 40px;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
+{{-- header --}}
+<div class="mb-8">
+    <h1 class="text-4xl font-bold text-white text-center md:text-left">
+        Money Saving
+    </h1>
+    <p class="text-xl text-gray-400 mt-1 text-center md:text-left">
+        Kelola tabunganmu dengan mudah
+    </p>
+</div>
 
-    .header-content {
-        flex: 1;
-        min-width: 250px;
-    }
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {{-- card kiri --}}
+    <div class="md:col-span-1">
+        <div class="md:sticky md:top-24">
+            <div class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-800 flex flex-col items-center text-center transition-all duration-300 hover:border-emerald-700/60">
 
-    .header-content h1 {
-        font-size: 32px;
-        font-weight: 700;
-        color: #ffffff;
-        margin: 0 0 8px 0;
-        line-height: 1.2;
-    }
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-2">
+                    Total Saldo
+                </h3>
+                
+                <p class="text-4xl md:text-3xl lg:text-4xl font-bold text-emerald-400 break-words">
+                    @php
+                        $total = array_sum(array_column($data, 'saldo'));
+                        echo 'Rp ' . number_format($total, 0, ',', '.');
+                    @endphp
+                </p>    
+                
+                <div class="h-1 w-20 bg-gray-800 rounded-full my-6"></div>
 
-    .header-content p {
-        font-size: 16px;
-        color: #9ca3af;
-        margin: 0;
-    }
-
-    .table-container {
-        background-color: #1a1f2e;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-        border: 1px solid #2d3748;
-        margin-bottom: 30px;
-    }
-
-    table {
-        width: 100%;
-        margin: 0;
-        border-collapse: collapse;
-    }
-
-    thead {
-        background-color: #0f1419;
-        border-bottom: 2px solid #2d3748;
-    }
-
-    th {
-        text-transform: uppercase;
-        font-size: 12px;
-        letter-spacing: 0.6px;
-        font-weight: 600;
-        color: #9ca3af;
-        padding: 16px 20px;
-        text-align: center;
-    }
-
-    tbody tr {
-        border-bottom: 1px solid #2d3748;
-        transition: background-color 0.2s ease;
-    }
-
-    tbody tr:hover {
-        background-color: #252d3d;
-    }
-
-    tbody tr:last-child {
-        border-bottom: none;
-    }
-
-    td {
-        padding: 16px 20px;
-        color: #d1d5db;
-        font-size: 14px;
-    }
-
-    td:nth-child(1),
-    td:nth-child(3) {
-        text-align: center;
-    }
-
-    .badge {
-        background-color: rgba(16, 185, 129, 0.15);
-        color: #10b981;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        display: inline-block;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-
-    .saldo-cell {
-        color: #10b981;
-        font-weight: 600;
-        font-size: 15px;
-    }
-
-    .total-saldo {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        padding: 28px 32px;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .total-saldo:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
-    }
-
-    .total-saldo h3 {
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 13px;
-        font-weight: 600;
-        margin: 0 0 12px 0;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .total-saldo p {
-        color: #ffffff;
-        font-size: 32px;
-        font-weight: 700;
-        margin: 0;
-        line-height: 1.2;
-    }
-
-    @media (max-width: 768px) {
-        .pengelolaan-header {
-            flex-direction: column;
-            margin-bottom: 30px;
-        }
-
-        .header-content h1 {
-            font-size: 24px;
-        }
-
-        th {
-            padding: 12px 10px;
-            font-size: 11px;
-        }
-
-        td {
-            padding: 12px 10px;
-            font-size: 13px;
-        }
-
-        .saldo-cell {
-            font-size: 14px;
-        }
-
-        .total-saldo p {
-            font-size: 24px;
-        }
-    }
-</style>
-
-<div class="pengelolaan-container">
-    <div class="pengelolaan-header">
-        <div class="header-content">
-            <h1>Money Saving</h1>
-            <p>Kak {{ $username ?? 'Guest' }}</p>
+                <p class="text-gray-500 text-sm italic">
+                    "Sedikit demi sedikit, lama-lama menjadi bukit."
+                </p>
+            </div>
         </div>
     </div>
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Hari</th>
-                    <th>Nama</th>
-                    <th>Saldo</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $item)
-                    <tr>
-                        <td><span class="badge">{{ $item['hari'] }}</span></td>
-                        <td>{{ $item['nama'] }}</td>
-                        <td class="saldo-cell">Rp {{ number_format($item['saldo'], 0, ',', '.') }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+    {{-- card kanan --}}
+    <div class="md:col-span-2">
+        <div class="bg-gray-900 rounded-2xl shadow-xl border border-gray-800 overflow-hidden hover:border-emerald-700/60 transition-all duration-300">
 
-    <div class="total-saldo">
-        <h3>Total Saldo</h3>
-        <p>
-            @php
-                $total = array_sum(array_column($data, 'saldo'));
-                echo 'Rp ' . number_format($total, 0, ',', '.');
-            @endphp
-        </p>
+            <div class="px-6 py-5 border-b border-gray-800">
+                <h3 class="text-xl font-semibold text-white">
+                    Riwayat Tabungan
+                </h3>
+                <p class="text-gray-400 mt-1 text-sm">
+                    Semua catatan pemasukan tabunganmu.
+                </p>
+            </div>
+
+            {{-- Tabel --}}
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-full">
+                    <thead class="bg-gray-800/50">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-center text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                Hari
+                            </th>
+                            <th scope="col" class="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                Nama
+                            </th>
+                            <th scope="col" class="px-6 py-4 text-center text-xs font-medium text-gray-400 uppercase tracking-wider">
+                                Saldo
+                            </th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody class="divide-y divide-gray-800">
+                        @forelse ($data as $item)
+                            <tr class="hover:bg-gray-800/60 transition-colors duration-150">
+                                <td class="px-6 py-4 whitespace-nowrap text-center">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-300 border border-emerald-700/50">
+                                        {{ $item['hari'] }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                                    {{ $item['nama'] }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center font-semibold text-emerald-400 text-base">
+                                    Rp {{ number_format($item['saldo'], 0, ',', '.') }}
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3" class="px-6 py-10 text-center text-gray-500">
+                                    Belum ada data tabungan.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
 @endsection
