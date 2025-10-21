@@ -4,8 +4,8 @@
 @section('content')
 <div class="w-full max-w-5xl mx-auto bg-gray-900 rounded-2xl shadow-2xl border border-gray-800 overflow-hidden">
     <div class="grid grid-cols-1 md:grid-cols-2">
-        
-        <!-- Left Side - Brand Info (Desktop Only) -->
+
+        {{-- card kiri --}}
         <div class="hidden md:flex flex-col justify-center p-12 bg-gradient-to-br from-gray-900 via-gray-900 to-emerald-900/30 border-r border-gray-800">
             <a href="/" class="text-4xl font-bold text-emerald-500 mb-4 transition-colors duration-200">
                 NaseAPP
@@ -18,16 +18,16 @@
             </p>
         </div>
 
-        <!-- Right Side - Login Form -->
+        {{-- kanan --}}
         <div class="p-8 sm:p-12">
-            <!-- Mobile Brand -->
+            {{-- mob --}}
             <div class="md:hidden text-center mb-8">
                 <a href="/" class="text-3xl font-bold text-emerald-500 mb-4 transition-colors duration-200">
                     NaseAPP
                 </a>
             </div>
-            
-            <!-- Form Header -->
+
+            {{-- head --}}
             <h2 class="text-3xl font-bold text-white mb-3 text-center md:text-left">
                 Login
             </h2>
@@ -35,25 +35,25 @@
                 Selamat datang kembali!
             </p>
 
-            <!-- Error Message -->
+            {{-- error handle --}}
             @if (session('error'))
                 <div class="bg-red-900/50 border border-red-700/50 text-red-300 p-3 rounded-lg mb-6 text-sm text-center">
                     {{ session('error') }}
                 </div>
             @endif
 
-            <!-- Success Message -->
+            {{-- sucess handle --}}
             @if (session('success'))
                 <div class="bg-green-900/50 border border-green-700/50 text-green-300 p-3 rounded-lg mb-6 text-sm text-center">
                     {{ session('success') }}
                 </div>
             @endif
 
-            <!-- Login Form -->
+            {{-- log form  --}}
             <form method="POST" action="/login" class="space-y-6">
                 @csrf
                 
-                <!-- Username Field -->
+                {{-- input usn --}}
                 <div>
                     <label for="username" class="block text-sm font-medium text-gray-400 mb-2">
                         Username
@@ -67,7 +67,7 @@
                         placeholder="Masukkan username Anda">
                 </div>
                 
-                <!-- Password Field -->
+                {{-- input password --}}
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-400 mb-2">
                         Password
@@ -80,8 +80,8 @@
                         class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
                         placeholder="••••••••">
                 </div>
-                
-                <!-- Submit Button -->
+
+                {{-- login button --}}
                 <div>
                     <button 
                         type="submit" 

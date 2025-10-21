@@ -11,7 +11,6 @@ class DashboardController extends Controller
         // Ambil username dari session
         $username = $request->session()->get('username');
         
-        // Redirect ke login jika belum login
         if (!$username) {
             return redirect('/')->with('error', 'Silakan login terlebih dahulu');
         }

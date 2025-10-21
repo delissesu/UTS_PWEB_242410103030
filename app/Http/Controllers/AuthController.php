@@ -30,7 +30,7 @@ class AuthController extends Controller
         return view('pages.login');
     }
     
-    // Login handler
+    // Login handler   
     public function handleLogin(Request $request) {
         $username = $request->input('username');
         $password = $request->input('password');
@@ -46,13 +46,13 @@ class AuthController extends Controller
                 return redirect('/dashboard');
             }
         }
-        return back()->with('error', 'username atau password salah');
+        return back()->with('error', 'Username atau Password salah');
     }
     
     // Logout handler
     public function logout(Request $request) {
         $request->session()->forget('username');
         $request->session()->flush();
-        return redirect('/')->with('success', 'Berhasil logout');
+        return redirect('/')->with('success', 'Berhasil Logout');
     }
 }

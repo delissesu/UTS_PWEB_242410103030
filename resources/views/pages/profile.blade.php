@@ -45,7 +45,11 @@
         {{-- card kanan --}}
         <div class="md:col-span-2">
             <div class="bg-gray-900 rounded-2xl shadow-xl border border-gray-800 overflow-hidden hover:border-emerald-700/60 transition-all duration-300">
+<<<<<<< HEAD
                 <!-- Card Header -->
+=======
+
+>>>>>>> naver-dev
                 <div class="px-6 py-5 sm:px-8 border-b border-gray-800">
                     <h3 class="text-xl font-semibold text-white">
                         Detail Akun
@@ -54,14 +58,23 @@
                         Lihat Informasi pribadimu.
                     </p>
                 </div>
+<<<<<<< HEAD
                 
 
                 <div class="divide-y divide-gray-800">
                     {{-- Username --}}
+=======
+
+
+                <div class="divide-y divide-gray-800"> 
+
+                    {{-- usn --}}
+>>>>>>> naver-dev
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
                         <span class="text-gray-400 font-medium">Username</span>
                         <span class="text-white font-semibold text-lg sm:text-right">{{ ucfirst($username) ?? 'N/A' }}</span>
                     </div>
+<<<<<<< HEAD
                     
                     <!-- Nama Lengkap -->
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
@@ -77,10 +90,28 @@
                                 {{ \Carbon\Carbon::parse($tanggal_lahir)->format('d F Y') }}
                             @else
                                 <span class="text-gray-500 italic">N/A</span>
+=======
+
+                    {{-- nama lengkap --}}
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Nama Lengkap</span>
+                        <span class="text-white font-semibold text-lg sm:text-right">{{ $namaLengkap ?? 'N/A' }}</span>
+                    </div>
+
+                    {{-- tanggal lahir --}}
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Tanggal Lahir</span>
+                        <span class="text-white font-semibold text-lg sm:text-right">
+                            @if($tanggalLahir)
+                                {{ \Carbon\Carbon::parse($tanggalLahir)->locale('id')->translatedFormat('d F Y') }}
+                            @else
+                                N/A
+>>>>>>> naver-dev
                             @endif
                         </span>
                     </div>
 
+<<<<<<< HEAD
                     <!-- Nomor Telepon -->
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
                         <span class="text-gray-400 font-medium">Nomor Telepon</span>
@@ -91,6 +122,18 @@
                     <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
                         <span class="text-gray-400 font-medium">Alamat Email</span>
                         <span class="text-white font-medium text-lg sm:text-right">{{ $email ?? 'N/A' }}</span>
+=======
+                    {{-- nomor telepon --}}
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Nomor Telepon</span>
+                        <span class="text-white font-semibold text-lg sm:text-right">{{ $nomorTelepon ?? 'N/A' }}</span>
+                    </div>
+                    
+                    <!-- Alamat Email -->
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center p-6 sm:px-8 sm:py-5 gap-2">
+                        <span class="text-gray-400 font-medium">Alamat Email</span>
+                        <span class="text-white font-semibold text-lg sm:text-right">{{ $email ?? 'N/A' }}</span>
+>>>>>>> naver-dev
                     </div>
                 </div>
 

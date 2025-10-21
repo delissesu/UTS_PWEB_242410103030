@@ -9,7 +9,7 @@
         Money Saving
     </h1>
     <p class="text-xl text-gray-400 mt-1 text-center md:text-left">
-        Kelola tabungan kamu dengan mudah
+        Kelola tabunganmu dengan mudah
     </p>
 </div>
 
@@ -48,7 +48,7 @@
                     Riwayat Tabungan
                 </h3>
                 <p class="text-gray-400 mt-1 text-sm">
-                    Semua catatan pemasukan tabungan kamu.
+                    Semua catatan pemasukan tabunganmu.
                 </p>
             </div>
 

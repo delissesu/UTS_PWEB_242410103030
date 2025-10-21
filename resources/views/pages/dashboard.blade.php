@@ -2,7 +2,7 @@
 @section('title', 'NaseAPP Dashboard')
 
 @section('content')
-<!-- Welcome Header -->
+
 <div class="mb-10">
     <h1 class="text-4xl font-bold text-white mb-1">
         Halo, {{ ucfirst($username ?? 'Guest') }}!
@@ -12,19 +12,19 @@
     </p>
 </div>
 
-<!-- Cards Grid -->
+{{-- grid card --}}
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    
-    <!-- Card Tabungan (Large) -->
-    <div class="lg:col-span-2 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 transition-all duration-300 hover:border-emerald-700/60">
-        
-        <!-- Content -->
+
+    {{-- card kiri --}}
+    <div class="lg:col-span-2 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 transition-all duration-300 hover:border-emerald-700/60 hover:shadow-lg">
+
+        {{-- konten --}}
         <div class="text-center md:text-left">
             <h2 class="text-3xl font-semibold text-white mb-2">
                 Tabungan Saya
             </h2>
             <p class="text-gray-400 mb-6 max-w-lg">
-                Lihat semua riwayat tabungan, periksa total saldo, dan kelola keuangan Anda di satu tempat.
+                Lihat semua riwayat tabungan dan periksa total saldomu.
             </p>
             <a href="/pengelolaan" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200">
                 Lihat Tabungan
@@ -33,7 +33,7 @@
     </div>
 
     {{-- card kanan --}}
-    <div class="lg:col-span-1 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-gray-600 hover:shadow-lg">
+    <div class="lg:col-span-1 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 p-8 flex flex-col items-center text-center transition-all duration-300 hover:border-emerald-700/60 hover:shadow-lg">
 
         <div class="flex-shrink-0 w-20 h-20 bg-gray-800 border border-gray-700 rounded-full flex items-center justify-center mb-5">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-gray-400">
