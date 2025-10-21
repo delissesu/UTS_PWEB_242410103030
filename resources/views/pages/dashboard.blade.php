@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Dashboard - NaverSaving')
+@section('title', 'NaseAPP Dashboard')
 
 @section('content')
 <style>

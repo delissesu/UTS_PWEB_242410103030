@@ -38,7 +38,7 @@
 </style>
 
 <nav>
-    <a href="/" class="nav-brand">Naveria Saving APP</a>
+    <a href="/" class="nav-brand">NaseAPP</a>
     <a href="/dashboard">Dashboard</a>
     <a href="/pengelolaan">Tabungan</a>
     <a href="/profile">Profil</a>
