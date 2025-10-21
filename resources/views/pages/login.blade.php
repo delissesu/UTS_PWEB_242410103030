@@ -18,14 +18,14 @@
 
 <form method="POST" action="/login" style="padding: 4px;">
     @csrf
-    <label for="">Username</label>
+    <label for="username">Username</label>
     <br>
-    <input type="text" name="username" required>
+    <input type="text" id="username" name="username" required style="font-family: 'Poppins">
     <br>
     <br>
-    <label for="">Password</label>
+    <label for="password">Password</label>
     <br>
-    <input type="password" name="password" required>
+    <input type="password" id="password" name="password" required style="font-family: 'Poppins">
     <br>
     <br>
     <button type="submit" style="font-weight: bold; font-family: 'Poppins';">Login</button>

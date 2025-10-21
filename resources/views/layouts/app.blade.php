@@ -68,6 +68,9 @@
             max-width: 400px;
             font-size: 16px;
             margin-bottom: 1px;
+            /* text-align: left; */
+            display: inline-block;
+            vertical-align: middle; 
         }
         
         input:focus {
@@ -76,13 +79,13 @@
         }
         
         label {
-            display: flex;
+            display: inline-block;
             margin-bottom: 4px;
             color: #9ca3af;
-            font-size: 14px;
-            font-weight: 800;
-            justify-content: center;
-            align-items: center;
+            font-size: 16px;
+            font-weight: 800;   
+            text-align: left;
+            /* align-items: center; */
         }
         
         button {
