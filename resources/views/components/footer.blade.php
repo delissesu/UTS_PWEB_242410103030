@@ -1,11 +1,22 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+<style>
+    footer {
+        background-color: #111827;
+        padding: 20px;
+        text-align: center;
+        color: #6b7280;
+        font-size: 14px;
+        margin-top: 40px;
+    }
+    
+    footer p {
+        margin: 0;
+    }
+    
+    footer a {
+        color: #10b981;
+    }
+</style>
 
-{{-- Gini dulu --}}
-<footer style="text-align: center; margin-top:40px; color:#777;">
-    <hr>
-    <p>
-        @naveriaworks
-    </p>
+<footer>
+    <p>@naveriaworks</p>
 </footer>

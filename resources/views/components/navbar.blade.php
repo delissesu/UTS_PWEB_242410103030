@@ -18,7 +18,8 @@
     }
     
     nav a:hover {
-        background-color: #1f2937;
+        /* background-color: #1f2937; */
+        background-color: transparent;
         color: #10b981;
         text-decoration: none;
     }
