@@ -17,11 +17,11 @@ class PageController extends Controller
         ['nama' => 'Liliaveria', 'saldo' => '6000000']
     ];
 
-    // Login return value ke routes
+    // Login return view ke routes
     public function login() {
         return view('login');
     }
-
+    
     // Login handler
     public function handelLogin(Request $request) {
         $username = $request->input('username');
@@ -34,4 +34,25 @@ class PageController extends Controller
         }
         return back()->with('error', 'username atau password salah');
     }
+    
+    // Dashboard return view ke routes
+    public function dashboard(Request $request) {
+        $username = $request->query('username');
+        return view('dashboard', compact('username'));
+    }
+
+    // Profile return view ke routes
+    public function profile(Request $request) {
+        $username = $request->query('username');
+        return view('profile', compact('username'));
+    }
+
+    // Pengelolaan return value ke routes
+    public function pengelolaan() {
+        return view('pengelolaan', ['data' => $this->tabungan]);
+    }
+
+
+
+
 }
