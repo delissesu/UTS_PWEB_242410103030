@@ -5,6 +5,6 @@
 {{-- Sementara gini dulu --}}
 <nav style="background:#eef;padding:10px;border-radius:5px;">
     <a href="/dashboard">Dashboard</a>
-    <a href="/pengelolaan">Pengelolaan</a>
+    <a href="/pengelolaan">Tabungan</a>
     <a href="/profile">Profil</a>
 </nav>

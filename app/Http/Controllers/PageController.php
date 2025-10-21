@@ -40,17 +40,17 @@ class PageController extends Controller
     // Dashboard return view ke routes
     public function dashboard(Request $request) {
         $username = $request->query('username');
-        return view('dashboard', compact('username'));
+        return view('pages.dashboard', compact('username'));
     }
 
     // Profile return view ke routes
     public function profile(Request $request) {
         $username = $request->query('username');
-        return view('profile', compact('username'));
+        return view('pages.profile', compact('username'));
     }
 
     // Pengelolaan return value ke routes
     public function pengelolaan() {
-        return view('pengelolaan', ['data' => $this->tabungan]);
+        return view('pages.pengelolaan', ['data' => $this->tabungan]);
     }
 }
